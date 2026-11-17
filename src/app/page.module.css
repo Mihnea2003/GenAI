@@ -1,0 +1,147 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero {
+  width: min(1100px, 100%);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 56px 40px;
+  box-shadow: 0 16px 40px rgba(13, 27, 42, 0.06);
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  max-width: 800px;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 650px;
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.primary,
+.secondary {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.secondary {
+  background: white;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.content {
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(13, 27, 42, 0.04);
+}
+
+.panel h2 {
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+
+.panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel li {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f7faff;
+  color: #23324a;
+  border: 1px solid #edf2ff;
+}
+
+.roles {
+  display: grid;
+  gap: 14px;
+}
+
+.roleCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f9fbff;
+  border: 1px solid var(--border);
+}
+
+.roleCard strong {
+  font-size: 1rem;
+}
+
+.roleCard span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 32px 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+  }
+}
+
