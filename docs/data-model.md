@@ -1,5 +1,7 @@
 # Initial Data Model
 
+**Contribution – Ioana Botezatu:** Responsible for data modelling, including identifying the main entities, defining their attributes, establishing relationships between entities, and specifying the core validation rules required by the application.
+
 > **Implemented schema:** see `docs/backend-api.md` §3. Differences from this initial model: events also store `organizationName`, `registeredCount` and `updatedAt`. Registration ids are `{eventId}_{userId}`, registrations store `organizationId`, `cancelledAt` and user contact fields, and their status is `confirmed | cancelled` (`pending` is unused). User roles are `student | organizer | admin`. Attendance is not implemented yet.
 
 ## Entities
