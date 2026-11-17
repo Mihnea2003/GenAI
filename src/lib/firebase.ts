@@ -24,6 +24,12 @@ let clients: { app: FirebaseApp; auth: Auth; db: Firestore } | null = null;
  */
 function firebaseClients() {
   if (clients) return clients;
+  if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    throw new Error(
+      "Firebase config is missing. Copy .env.example to .env.local, then restart `npm run dev` " +
+        "(Next.js reads env files only at startup).",
+    );
+  }
   const isNewApp = getApps().length === 0;
   const app = isNewApp ? initializeApp(firebaseConfig) : getApps()[0];
   const auth = getAuth(app);

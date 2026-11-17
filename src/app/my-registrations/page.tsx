@@ -9,7 +9,7 @@ export default function MyRegistrationsPage() {
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <SiteHeader />
+        <SiteHeader active="registrations" />
         <MyRegistrations />
       </div>
     </main>

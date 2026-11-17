@@ -10,7 +10,7 @@ export default function EventPage({ params }: { params: Promise<{ eventId: strin
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <SiteHeader />
+        <SiteHeader active="events" />
         {/* With Cache Components, route params are runtime data and must be read inside Suspense. */}
         <Suspense fallback={<div aria-busy="true" className={styles.skeleton} style={{ marginTop: 24, minHeight: 320 }} />}>
           {params.then(({ eventId }) => <EventDetails eventId={eventId} />)}
