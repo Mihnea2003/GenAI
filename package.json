@@ -7,20 +7,29 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:emulator": "firebase emulators:exec --only firestore,auth --project demo-ubbevents \"vitest run --config vitest.emulator.config.mts\"",
+    "test:all": "npm test && npm run test:emulator",
+    "emulators": "firebase emulators:start --only firestore,auth --project demo-ubbevents",
+    "seed": "node scripts/seed-emulator.mjs",
+    "set-role": "node --env-file=.env.local scripts/set-role.mjs"
   },
   "dependencies": {
     "firebase": "^13.4.0",
+    "firebase-admin": "^13.10.0",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "firebase-tools": "^15.36.0",
     "typescript": "^5",
     "vitest": "^4.1.12"
   }

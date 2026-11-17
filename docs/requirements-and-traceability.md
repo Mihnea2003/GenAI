@@ -77,11 +77,11 @@ Authorization must be enforced by trusted server-side code or Firebase security 
 | Source requirement | Use case / workflow | Implementation or artifact | Verification status |
 | --- | --- | --- | --- |
 | R1, R4, R5 | UC-01, UC-02: event create/edit/publish | `src/app/events-dashboard.tsx`; `src/lib/event-lifecycle.ts` | Lifecycle tests and build; demo state only. |
-| R2 | UC-01: organization-scoped authorization | Architecture and permission requirements | Firebase Auth and server-side enforcement pending. |
-| R3 | UC-04: student registration | Requirements and API contract | Backend and registration flow pending. |
+| R2 | UC-01: organization-scoped authorization | `src/server/auth.ts`; `src/lib/registration-rules.ts`; `firestore.rules` | Emulator tests: `tests/emulator/api.test.ts`, `events.test.ts`, `rules.test.ts`. |
+| R3 | UC-04: student registration | `src/server/registrations-service.ts`; `/api/events/{id}/registration` | Emulator tests incl. duplicate, full and concurrent registrations; student UI pending (Ioana). |
 | R6 | UC-03: search/discovery | Search control in event dashboard | Prototype search; student discovery view pending. |
-| R7 | UC-01 through UC-05 | Firebase/Firestore architecture | Persistence not yet connected. |
-| R8, R9 | Workflow and API boundary | `docs/event-lifecycle-and-api.md` | Contract documented; server implementation pending. |
+| R7 | UC-01 through UC-04 | Firestore via Admin SDK; `docs/backend-api.md` | Persisted and tested on emulators; attendance (UC-05) pending. |
+| R8, R9 | Workflow and API boundary | `src/app/api/**`; `docs/backend-api.md` | Implemented; route handlers tested with real ID tokens. |
 | R10 | UC-01, UC-03, UC-04 | Event dashboard prototype | Build check; user validation pending. |
 | R11 | Event validation and transition rules | `src/lib/event-lifecycle.test.ts` | `npm test` must be run before submission. |
 | R12 | Local development now; Render later | README and architecture | Local build; Render deployment is future work. |

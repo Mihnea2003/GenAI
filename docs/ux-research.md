@@ -17,6 +17,13 @@ These are hypotheses for the team to test, not quotes or verified findings:
 
 No product changes are attributed to interviews. The current draft/published workflow and event details are provisional design choices based on the assignment and unverified hypotheses.
 
+## Implementation status (added with the student workflow)
+
+The student workflow (browse, search and filter, details, register and cancel, my registrations) is now implemented against persisted Firebase data. See `docs/student-flow.md`.
+
+- **Real-user validation is still pending.** No interviews or usability sessions with students or organizers have taken place. The design choices in `docs/student-flow.md` follow the simulated hypotheses above and the assignment, not user evidence.
+- When interviews happen, record them with the template below. Then update the "changed assumptions" and "product changes" fields, and the usability-issues section of `docs/student-flow.md`.
+
 ## Interview plan
 
 ### Participants to recruit

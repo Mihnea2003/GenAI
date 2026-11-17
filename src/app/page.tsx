@@ -1,5 +1,14 @@
-import EventsDashboard from "./events-dashboard";
+import EventsBrowser from "./events-browser";
+import SiteHeader from "./site-header";
+import styles from "./student.module.css";
 
 export default function Home() {
-  return <EventsDashboard />;
+  return (
+    <main className={styles.page}>
+      <div className={styles.shell}>
+        <SiteHeader />
+        <EventsBrowser />
+      </div>
+    </main>
+  );
 }

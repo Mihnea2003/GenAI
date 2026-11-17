@@ -9,6 +9,7 @@ Relevant project documents:
 - docs/project-foundation.md
 - docs/team-roles.md
 - docs/data-model.md
+- docs/backend-api.md
 - .env.example
 
 ## Tech stack
@@ -28,19 +29,33 @@ Relevant project documents:
 
 ## Local development
 
+Requires Node 20+ and Java 11+ (for the Firebase emulators). No real Firebase account is needed locally.
+
 ```bash
 npm install
-npm run dev
+cp .env.example .env.local   # defaults target the local emulators; never commit .env.local
+npm run emulators            # terminal 1: Firebase Auth + Firestore emulators (UI at http://localhost:4000)
+npm run seed                 # terminal 2: demo organizations, accounts (password Passw0rd!) and events
+npm run dev                  # http://localhost:3000
 ```
 
-Open http://localhost:3000 in the browser.
+| Page | Try it as |
+| --- | --- |
+| `/`: browse, search and filter events; `/events/{id}`: details and registration | `student@ubbevents.test` |
+| `/my-registrations`: own registrations, cancel | `student@ubbevents.test` |
+| `/organizer`: create, edit and publish events | `organizer@ubbevents.test` |
 
-## Environment configuration
-Copy the example file and fill in your Firebase project values:
+The student workflow is documented in [docs/student-flow.md](docs/student-flow.md).
+
+## Tests
 
 ```bash
-cp .env.example .env.local
+npm test               # unit tests (no Firebase needed)
+npm run test:emulator  # backend integration + security rules tests against the emulators
 ```
+
+## Backend
+The API, Firestore schema, security rules, real-project setup and error codes are documented in [docs/backend-api.md](docs/backend-api.md).
 
 ## Team setup notes
 The project is currently set up locally in the workspace and can be pushed to GitHub by the team lead once Git is available on the machine.
