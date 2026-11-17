@@ -106,5 +106,3 @@ AI tools were used to assist with the development and documentation of the proje
 - **Purpose:** Assistance with the student-facing workflow, frontend implementation, data-related documentation, UX research documentation, and supporting utilities.
 - **Documentation:** The team's GenAI usage is recorded in `docs/genai-usage-report.md` and `docs/student-flow.md`.
 
-AI-generated material was reviewed and used as part of the project workflow. The final contribution statement distinguishes Ioana's responsibilities in UX, data modelling, and frontend–backend integration from AI-assisted code generation.
-
