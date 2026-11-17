@@ -45,8 +45,7 @@
 - Unit tests and emulator integration tests (services, route handlers with real Auth-emulator tokens, security rules, concurrent registrations).
 - The typed browser API client, the `useAuth` hook, the sign-in panel, and the connection of the organizer dashboard to the API.
 - `docs/backend-api.md` and draft text for `docs/sebastian-contribution.md` and this section.
-- At Sebastian's request, the **student workflow assigned to Ioana**: `/` browse, search and filter (`events-browser.tsx`), `/events/[eventId]` details and registration, `/my-registrations`, the shared site header, data hooks, and `docs/student-flow.md`. The organizer dashboard moved to `/organizer`. The team must decide how this work is credited. Ioana's statement must not claim it unless she actually took part.
-
+- 
 ## Inputs given by the student
 - The assignment text for the backend role and the student workflow it must support.
 - The decision to use Node.js / Next.js with Firebase, as already chosen by the team.
@@ -66,3 +65,37 @@
 ## Limitations
 - The code is AI-generated. The student is responsible for reviewing it and must be able to explain the transaction logic and the security rules.
 - Not yet tested against a real (non-emulator) Firebase project.
+
+
+---
+
+# GenAI Usage: Ioana Botezatu (Frontend and UX)
+
+## Tools used
+- Claude Code (Anthropic) in VS Code, model Claude Opus 5.5
+- ChatGPT for assistance with UX documentation and research documentation.
+
+## Purpose and artifacts
+- Worked on the **student workflow**, covering event browsing, searching and filtering through `events-browser.tsx`, `/events/[eventId]` (event details and registration), and `/my-registrations`.
+- Contributed to the student-facing navigation through the shared site header and supporting data hooks.
+- Defined and documented the student journey, from discovering published events to registering, cancelling registrations, and checking registration status.
+- Worked on identifying the main interface states, including loading, errors, empty results, successful registration, already-registered states, full events, and cancelled events.
+- Prepared and refined the UX research documentation, including research objectives, initial hypotheses, interview questions, and the interview plan.
+- Documented the student routes, product flow, UI states, and responsive design requirements in `docs/student-flow.md`.
+- Prepared and refined the individual contribution statement in `docs/individual-contribution-ioana.md`.
+
+## Human review and verification
+- The project requirements and assigned responsibilities defined Ioana's focus on frontend UX, research, discovery, and the participant experience.
+- Informal conversations with students and former university colleagues provided preliminary perspectives on student events, event discovery, and registration experiences.
+- Formal usability testing and systematic user validation remain pending.
+- The student workflow documentation distinguishes implemented functionality from responsive checks and usability evaluations that still require verification.
+- The student-facing workflow is connected to the Firebase-backed API and uses persisted application data rather than sample-only data.
+- The documentation and contribution statement require human review to ensure they accurately represent Ioana's work.
+
+## Material human decisions
+- Focused the student experience on discovering published events and completing registrations.
+- Identified the importance of displaying event information, including date, location, organization, and available capacity before registration.
+- Included clear interface states for registration outcomes, errors, unavailable events, and cancellations.
+- Distinguished preliminary UX assumptions from actual user feedback.
+- Kept formal usability validation pending rather than presenting informal conversations as structured usability testing.
+- Considered responsive design requirements for both mobile and desktop layouts.
