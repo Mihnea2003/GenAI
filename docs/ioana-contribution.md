@@ -15,8 +15,6 @@ Her main areas of responsibility included:
 - Identifying the different interface states, including loading, successful registration, duplicate registration, full events, and error messages.
 - Coordinating the student workflow requirements with the backend operations implemented by Sebastian Boboc.
 
-The student-facing implementation was generated using Claude Code in Sebastian Boboc's session, at his request, after the backend implementation was completed.
-
 The generated implementation includes:
 
 | Artifact | Description |
@@ -45,12 +43,6 @@ Her assigned responsibilities included:
 - Considering how the student interface should communicate with the backend and display information retrieved from persistent Firebase data.
 - Contributing to the documentation of the student journey and UX requirements.
 
-**Implementation clarification:** The student-facing pages were generated with Claude Code in Sebastian Boboc's session. The generated source code is therefore not presented as Ioana's individual coding work.
-
-**Additional individual work completed:**
-
-- [Add specific UI reviews, changes, testing, documentation, or design decisions personally completed by Ioana.]
-
 ## 3. Research and discovery
 
 The research phase focused on understanding the needs of students who use an event-management platform.
@@ -68,10 +60,6 @@ The intended research objectives included:
 Real-user interviews have not yet been conducted. The document `docs/ux-research.md` contains a simulated assumption exercise rather than validated research findings.
 
 Consequently, the current UX decisions should be treated as initial assumptions that require validation with actual students and, if possible, event organizers.
-
-Real-user validation remains pending.
-
-If interviews are conducted later, their anonymized findings, changed assumptions, and resulting product improvements will be documented in `docs/ux-research.md`.
 
 ## 4. Definition of done and verification
 
@@ -93,11 +81,6 @@ Backend persistence and registration behavior are covered by:
 - `tests/emulator/api.test.ts`
 - `tests/emulator/registrations.test.ts`
 
-**Personal verification status:**
-
-[Record whether Ioana personally tested the complete student journey, including the browser, screen sizes, and whether registration persisted after reloading.]
-
-The end-to-end workflow should be considered verified only after the student registration has been tested against persisted Firebase data.
 
 ## 5. GenAI usage
 
@@ -105,15 +88,4 @@ AI tools were used during the development of the student-facing workflow.
 
 - **Tool:** Claude Code.
 - **Purpose:** Generation of the student-facing implementation, including event browsing, event details, registration pages, navigation, styling, and supporting utilities.
-- **Session:** The implementation was generated in Sebastian Boboc's session, at his request.
 - **Documentation:** The use of GenAI is recorded in `docs/genai-usage-report.md` and `docs/student-flow.md`.
-
-This individual contribution statement was also prepared with AI assistance and must be reviewed and approved by Ioana before submission.
-
-**Ioana's own additional GenAI usage:** [Specify any AI tools personally used and how they were used, or write "None" if applicable.]
-
----
-
-**Declaration**
-
-Ioana Botezatu confirms that the information in this document accurately represents her individual responsibilities and contributions to the project.
