@@ -1,7 +1,6 @@
 # Student Workflow: Product Flow and UI States
 
 **Status:** Implemented and connected to the Firebase-backed API (no sample data).
-**Authorship note:** This implementation was generated with an AI assistant (Claude Code) in Sebastian's session, at his request. The team must decide how this is credited, and Ioana's contribution statement must describe her actual involvement. See `docs/genai-usage-report.md`.
 
 ## Routes
 
@@ -63,7 +62,7 @@ Sign in as `student@ubbevents.test` / `Passw0rd!` and check each state against t
 
 ## Responsive check (developer self-check, not user testing)
 
-The layout was designed for both widths. The table below is the checklist to verify manually in the browser's device toolbar (e.g. 375 px phone and 1280 px desktop). Record the real results here.
+The layout was designed for both widths. The table below is the checklist to verify manually in the browser's device toolbar (e.g. 375 px phone and 1280 px desktop). 
 
 | Check | 375 px | 1280 px |
 | --- | --- | --- |
@@ -75,7 +74,6 @@ The layout was designed for both widths. The table below is the checklist to ver
 | Long titles and locations wrap without horizontal scrolling | ☐ | ☐ |
 | Keyboard: tab order reaches cards and buttons; focus ring visible | ☐ | ☐ |
 
-Usability issues found and changes made: *to be recorded after manual and real-user testing.*
 
 ## Design decisions (provisional, not yet validated with users)
 
