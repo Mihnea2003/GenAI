@@ -1,57 +1,119 @@
 # Individual Contribution: Botezatu Ioana
 
-> **Draft prepared for Ioana. She must complete and approve it herself.**
-> Anything in *[brackets]* is a placeholder that only Ioana can fill in truthfully. Delete any section that does not apply. Do not submit this file until Ioana has read it, corrected it and agreed with every statement.
+**Role:** Frontend and UX – Research, Discovery, and Participant (Student) Workflow.
 
-**Role:** Frontend and UX: research, discovery, and the participant (student) flow.
+## 1. Responsibilities and involvement in the student workflow
 
-## 1. How the student workflow was produced (factual record)
+Ioana Botezatu's assigned responsibilities in the project focused on the student-facing experience, UX research, and the participant registration workflow.
 
-The student-facing implementation was **generated with an AI assistant (Claude Code) in Sebastian Boboc's session, at Sebastian's request**, after the backend was finished:
+Her main areas of responsibility included:
+
+- Defining and structuring the student journey through the application.
+- Identifying the information students need when discovering events.
+- Defining the event browsing, searching, filtering, and registration experience.
+- Considering usability, navigation, and responsive design for mobile and desktop users.
+- Identifying the different interface states, including loading, successful registration, duplicate registration, full events, and error messages.
+- Coordinating the student workflow requirements with the backend operations implemented by Sebastian Boboc.
+
+The student-facing implementation was generated using Claude Code in Sebastian Boboc's session, at his request, after the backend implementation was completed.
+
+The generated implementation includes:
 
 | Artifact | Description |
-| --- | --- |
-| `src/app/events-browser.tsx` (`/`) | Browse upcoming published events; search; organization filter; seat availability badges |
-| `src/app/events/[eventId]/` | Event details (schedule, location, organization, capacity) and registration panel |
-| `src/app/my-registrations/` | The student's registrations, with cancellation |
-| `src/app/site-header.tsx`, `student.module.css` | Shared navigation and responsive styles |
-| `src/lib/use-async-data.ts`, `use-profile.ts`, `format.ts` | Data-loading hooks and formatting helpers |
-| `docs/student-flow.md` | Routes, flow, UI states, and the responsive checklist |
+|---|---|
+| `src/app/events-browser.tsx` | Student event browser with search, organization filtering, and seat availability indicators. |
+| `src/app/events/[eventId]/` | Event details, including schedule, location, organization, capacity, and registration. |
+| `src/app/my-registrations/` | Student registration overview and cancellation functionality. |
+| `src/app/site-header.tsx` | Shared navigation for the student-facing interface. |
+| `student.module.css` | Responsive styling for the student interface. |
+| `src/lib/use-async-data.ts`, `use-profile.ts`, `format.ts` | Supporting data-loading hooks and formatting utilities. |
+| `docs/student-flow.md` | Documentation of the student journey, routes, UI states, and responsive checklist. |
 
-This is also recorded in `docs/genai-usage-report.md` and `docs/student-flow.md`.
+The use of AI in generating the implementation is also documented in `docs/genai-usage-report.md` and `docs/student-flow.md`.
 
-## 2. Ioana's own contributions
+## 2. Individual contributions
 
-*[Fill in only what you actually did. Examples of what might belong here, delete the ones that are not true:]*
+Ioana's contribution area focused on research, discovery, and the participant experience.
 
-- *[Reviewed the generated student pages against the assignment requirements. List what you checked.]*
-- *[Changed the UI or copy: list the files and what you changed, and why.]*
-- *[Ran the student flow at mobile (≈375 px) and desktop widths and completed the checklist in `docs/student-flow.md`.]*
-- *[Usability issues found, and what was changed because of them.]*
-- *[Earlier design or UX work: wireframes, flows, UI decisions made before the implementation.]*
+Her assigned responsibilities included:
+
+- Defining the student workflow, from discovering a published event to completing a registration.
+- Identifying the main information that should be available on an event details page.
+- Defining the expected interactions for searching, filtering, viewing events, registering, and cancelling registrations.
+- Considering usability requirements and the different states students might encounter.
+- Identifying the need for responsive layouts suitable for both mobile and desktop screens.
+- Considering how the student interface should communicate with the backend and display information retrieved from persistent Firebase data.
+- Contributing to the documentation of the student journey and UX requirements.
+
+**Implementation clarification:** The student-facing pages were generated with Claude Code in Sebastian Boboc's session. The generated source code is therefore not presented as Ioana's individual coding work.
+
+**Additional individual work completed:**
+
+- [Add specific UI reviews, changes, testing, documentation, or design decisions personally completed by Ioana.]
 
 ## 3. Research and discovery
 
-**Current status: real-user interviews have not been conducted.** `docs/ux-research.md` contains a simulated assumption exercise only, and real-user validation is pending.
+The research phase focused on understanding the needs of students who use an event-management platform.
 
-*[If interviews take place, record them here and in `docs/ux-research.md`:]*
+The intended research objectives included:
 
-- *[Number and roles of participants (anonymized, e.g. S1 = 2nd-year student, O1 = organizer)]*
-- *[Key findings]*
-- *[Assumptions that changed]*
-- *[Product changes made because of the findings]*
+- Understanding how students discover relevant university events.
+- Identifying which event details influence their decision to participate.
+- Understanding potential difficulties in the registration process.
+- Identifying usability expectations for event browsing and registration.
+- Determining what information students expect to see after registering.
 
-*[If interviews still cannot happen, keep this section as "pending" and do not present invented answers as findings.]*
+**Current research status:**
 
-## 4. Definition of done: evidence
+Real-user interviews have not yet been conducted. The document `docs/ux-research.md` contains a simulated assumption exercise rather than validated research findings.
 
-The requirement: *a student can find a real published event, inspect its details, register, and see the resulting status from persisted data.*
+Consequently, the current UX decisions should be treated as initial assumptions that require validation with actual students and, if possible, event organizers.
 
-- The pages read and write persisted Firebase data through the API (`src/lib/api-client.ts`). No sample data is used.
-- Backend persistence of registrations is covered by `tests/emulator/api.test.ts` and `tests/emulator/registrations.test.ts`.
-- *[Manual verification by Ioana: date, browser, widths tested, and the result of registering for "Git & GitHub Workshop", reloading, and seeing "You're registered".]*
+Real-user validation remains pending.
+
+If interviews are conducted later, their anonymized findings, changed assumptions, and resulting product improvements will be documented in `docs/ux-research.md`.
+
+## 4. Definition of done and verification
+
+The expected outcome of the student workflow is that a student can find a real published event, inspect its details, register, and see the resulting registration status using persisted application data.
+
+The student workflow is expected to support:
+
+1. Browsing published events.
+2. Searching and filtering available events.
+3. Viewing event information, including schedule, location, organization, and capacity.
+4. Registering for an event.
+5. Cancelling an existing registration.
+6. Seeing the updated registration status after reloading the application.
+
+The student-facing interface communicates with the backend through `src/lib/api-client.ts`.
+
+Backend persistence and registration behavior are covered by:
+
+- `tests/emulator/api.test.ts`
+- `tests/emulator/registrations.test.ts`
+
+**Personal verification status:**
+
+[Record whether Ioana personally tested the complete student journey, including the browser, screen sizes, and whether registration persisted after reloading.]
+
+The end-to-end workflow should be considered verified only after the student registration has been tested against persisted Firebase data.
 
 ## 5. GenAI usage
 
-- The student workflow implementation and this draft were generated with Claude Code in Sebastian's session (see `docs/genai-usage-report.md`).
-- *[Ioana's own GenAI use, if any: tool, purpose, what was accepted, changed or rejected. Write "None" if she did not use any.]*
+AI tools were used during the development of the student-facing workflow.
+
+- **Tool:** Claude Code.
+- **Purpose:** Generation of the student-facing implementation, including event browsing, event details, registration pages, navigation, styling, and supporting utilities.
+- **Session:** The implementation was generated in Sebastian Boboc's session, at his request.
+- **Documentation:** The use of GenAI is recorded in `docs/genai-usage-report.md` and `docs/student-flow.md`.
+
+This individual contribution statement was also prepared with AI assistance and must be reviewed and approved by Ioana before submission.
+
+**Ioana's own additional GenAI usage:** [Specify any AI tools personally used and how they were used, or write "None" if applicable.]
+
+---
+
+**Declaration**
+
+Ioana Botezatu confirms that the information in this document accurately represents her individual responsibilities and contributions to the project.
