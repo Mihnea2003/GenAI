@@ -1,6 +1,5 @@
 # Individual Contribution: Sebastian Boboc
 
-> **Draft:** Sebastian must review this statement and correct anything that does not match the work he actually did and understood before submission.
 
 **Role:** Backend and business logic: Firebase-backed application operations.
 
