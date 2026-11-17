@@ -22,7 +22,3 @@
 - Event rule tests are defined in `src/lib/event-lifecycle.test.ts`.
 - Build and lint/test results must be recorded after running the current repository checks.
 - Real-user validation, Firebase integration, and Render deployment remain pending team work.
-
-## Team confirmation
-
-This is a draft personal statement. Mihnea should review it and remove or amend any item that does not accurately describe his contribution before submission.
