@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <SiteHeader />
+        <SiteHeader active="events" />
         <EventsBrowser />
       </div>
     </main>

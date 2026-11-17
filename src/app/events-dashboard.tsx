@@ -51,7 +51,7 @@ export default function EventsDashboard() {
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <SiteHeader />
+        <SiteHeader active="organizer" />
 
         {loading ? (
           <p className={styles.emptyState}>Loading…</p>
