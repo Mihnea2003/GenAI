@@ -1,5 +1,7 @@
 # Initial Data Model
 
+> **Implemented schema:** see `docs/backend-api.md` §3. Differences from this initial model: events also store `organizationName`, `registeredCount` and `updatedAt`. Registration ids are `{eventId}_{userId}`, registrations store `organizationId`, `cancelledAt` and user contact fields, and their status is `confirmed | cancelled` (`pending` is unused). User roles are `student | organizer | admin`. Attendance is not implemented yet.
+
 ## Entities
 
 ### User

@@ -25,6 +25,44 @@
 - Scoped Mihnea's implemented workflow to event authoring and lifecycle, with persistence/API integration left for team review.
 - Kept deployment local for this milestone and recorded Render as a later target.
 
-## Limitations
+## Limitations (Mihnea's section)
 - This is a draft for Mihnea's usage only. Confirm that the listed artifacts reflect the actual work he reviewed and adopted; add other tools and team members' actual use without inferring their AI usage.
 - The artifacts are AI-assisted and require team review, integration, and verification before submission.
+
+---
+
+# GenAI Usage: Sebastian Boboc (backend)
+
+> **Draft written by the AI assistant during the session.** Sebastian must edit it to reflect what he actually reviewed, changed and understood. Do not submit it unverified.
+
+## Tool used
+- Claude Code (Anthropic) in VS Code, model Claude Opus 5.5, in one agentic session on branch `backend/firebase-operations`.
+
+## What the assistant produced
+- The Firebase Admin initialization, ID-token authentication, and the event and registration service layer with Firestore transactions.
+- The Next.js route handlers implementing the API contract proposed in `docs/event-lifecycle-and-api.md`.
+- Firestore security rules, the emulator configuration, `.env.example`, and the seed and `set-role` scripts.
+- Unit tests and emulator integration tests (services, route handlers with real Auth-emulator tokens, security rules, concurrent registrations).
+- The typed browser API client, the `useAuth` hook, the sign-in panel, and the connection of the organizer dashboard to the API.
+- `docs/backend-api.md` and draft text for `docs/sebastian-contribution.md` and this section.
+- At Sebastian's request, the **student workflow assigned to Ioana**: `/` browse, search and filter (`events-browser.tsx`), `/events/[eventId]` details and registration, `/my-registrations`, the shared site header, data hooks, and `docs/student-flow.md`. The organizer dashboard moved to `/organizer`. The team must decide how this work is credited. Ioana's statement must not claim it unless she actually took part.
+
+## Inputs given by the student
+- The assignment text for the backend role and the student workflow it must support.
+- The decision to use Node.js / Next.js with Firebase, as already chosen by the team.
+
+## Verification performed in the session
+- `npm test`: unit tests passed.
+- `npm run test:emulator`: integration tests passed against the local Firestore and Auth emulators, including the concurrency test (10 parallel registrations for 3 seats gave exactly 3 confirmed).
+- ESLint reported no problems. The production build was run (see the session record for its result).
+- Environment issues found and handled during the session: a missing Windows native binding for the test runner (installed without changing the lockfile), and port 8080 already in use locally (the Firestore emulator was moved to 8085).
+
+## Decisions the student should confirm or revise
+- All event and registration writes go through the server API. Security rules deny direct client writes to them.
+- Roles are stored in `users/{uid}` and assigned only by the admin script. Self sign-up always creates a student.
+- Registrations are confirmed immediately; the `pending` status is not used. Registration closes when the event starts.
+- The `organization` free-text field was replaced by `organizationId` in the shared validation and the dashboard.
+
+## Limitations
+- The code is AI-generated. The student is responsible for reviewing it and must be able to explain the transaction logic and the security rules.
+- Not yet tested against a real (non-emulator) Firebase project.

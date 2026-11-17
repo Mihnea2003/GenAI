@@ -1,0 +1,79 @@
+rules_version = '2';
+
+// UBB Events - Firestore security rules.
+//
+// Trust model:
+// - Event and registration WRITES go only through the Next.js API (src/server), which uses the
+//   Admin SDK, verifies the caller's ID token, and enforces permissions, status transitions,
+//   duplicates and capacity inside transactions. The Admin SDK bypasses these rules.
+// - These rules protect direct client-SDK access: users can read only what they are allowed to
+//   see and cannot write events, registrations, or their own role.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function profilePath() {
+      return /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    function hasProfile() {
+      return signedIn() && exists(profilePath());
+    }
+
+    function isAdmin() {
+      return hasProfile() && get(profilePath()).data.role == 'admin';
+    }
+
+    function isOrganizerOf(organizationId) {
+      return hasProfile() && (
+        get(profilePath()).data.role == 'admin' ||
+        (get(profilePath()).data.role == 'organizer' &&
+          get(profilePath()).data.organizationId == organizationId)
+      );
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || isAdmin());
+
+      // Self sign-up may only create a student profile; roles are assigned by admins (Admin SDK).
+      allow create: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['email', 'displayName', 'role', 'organizationId', 'createdAt'])
+        && request.resource.data.role == 'student'
+        && request.resource.data.organizationId == null
+        && request.resource.data.email == request.auth.token.email;
+
+      // Users may change their display name only.
+      allow update: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName'])
+        && request.resource.data.displayName is string;
+
+      allow delete: if false;
+    }
+
+    match /organizations/{organizationId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /events/{eventId} {
+      // Published, completed and cancelled events are public; drafts only for their organizers.
+      allow read: if resource.data.status != 'draft' || isOrganizerOf(resource.data.organizationId);
+      allow write: if false; // API only (status transitions + capacity counter integrity)
+    }
+
+    match /registrations/{registrationId} {
+      allow read: if signedIn() && (
+        resource.data.userId == request.auth.uid ||
+        isOrganizerOf(resource.data.organizationId)
+      );
+      allow write: if false; // API only (duplicate + atomic capacity checks)
+    }
+
+    // Anything not matched above (e.g. future attendance records) is denied by default.
+  }
+}

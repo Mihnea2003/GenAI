@@ -8,7 +8,7 @@ const validDraft: EventDraft = {
   startDate: "2027-03-10T10:00:00.000Z",
   endDate: "2027-03-10T12:00:00.000Z",
   location: "Main building",
-  organization: "Student association",
+  organizationId: "student-association",
   capacity: 40,
 };
 
